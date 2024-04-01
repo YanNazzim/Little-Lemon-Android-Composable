@@ -21,12 +21,16 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             LittleLemonTheme {
+                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    // Pass the resource ID directly without converting to String
-                    RestaurantName(R.string.title, 24)
+                    RestaurantName(
+                        name = stringResource(id = R.string.title),
+                        modifier = Modifier.padding(10.dp),
+                        size = 32
+                    )
                 }
             }
         }
@@ -34,22 +38,33 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun RestaurantName(nameResId: Int, size : Int) {
-    // Retrieve the string resource using the provided ID
-    val name = stringResource(id = nameResId)
+fun RestaurantName(name: String, modifier: Modifier, size: Int) {
     Text(
-        text = "The restaurant's name is: $name",
-        modifier = Modifier.padding(16.dp),
+        text = "Restaurant Name: $name",
+        modifier = modifier,
         fontSize = size.sp
     )
 }
 
-
 @Preview(showBackground = true)
 @Composable
 fun RestaurantNamePreview() {
-    LittleLemonTheme {
-        RestaurantName(R.string.title, 24)
-    }
+    RestaurantName(
+        name = stringResource(id = R.string.title),
+        modifier = Modifier.padding(10.dp),
+        size = 32
+    )
 }
 
+@Composable
+fun Greeting(name: String) {
+    Text(text = "Hello $name!")
+}
+
+@Preview(showBackground = true)
+@Composable
+fun DefaultPreview() {
+    LittleLemonTheme {
+        Greeting("Android")
+    }
+}
