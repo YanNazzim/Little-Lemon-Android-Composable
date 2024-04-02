@@ -1,10 +1,6 @@
 # Scenario
 ## You want to create the Little Lemon app and are excited to start developing the UI. The first step is to become familiar with Android Studio and exercise writing and using your own composable function.
 
-# Scenario
-
-In the previously developed Little Lemon login screen, the user could not input any text in the login fields. The button clicks didn’t work, and the spacing between the elements wasn’t right. You’ll do exactly those tasks in this exercise since you have learned about state and how Compose lets you manage state.
-
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
